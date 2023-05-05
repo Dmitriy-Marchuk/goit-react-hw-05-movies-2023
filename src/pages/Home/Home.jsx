@@ -25,7 +25,6 @@ const Home = () => {
 
   return (
     <>
-      <h1>Trending today</h1>
       <MovieGallery moviesCollection={trendingCollection} />
       {loading && <Loader />}
     </>

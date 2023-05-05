@@ -1,3 +1,4 @@
+import { Link, useLocation } from 'react-router-dom';
 import {
   MovieImagePoster,
   MovieItemTitle,
@@ -10,18 +11,22 @@ const PosterNotAvailable =
 const MovieGalleryItem = ({ movie }) => {
   const { poster_path, name, title } = movie;
 
+  const location = useLocation();
+
   return (
     <>
       <MovieItemWrapper>
-        <MovieImagePoster
-          src={
-            poster_path
-              ? `https://image.tmdb.org/t/p/w500${poster_path}`
-              : PosterNotAvailable
-          }
-          alt={title ?? name}
-        />
-        <MovieItemTitle>{title ?? name}</MovieItemTitle>
+        <Link to={`/movies/${movie.id}`} state={{ from: location }}>
+          <MovieImagePoster
+            src={
+              poster_path
+                ? `https://image.tmdb.org/t/p/w500${poster_path}`
+                : PosterNotAvailable
+            }
+            alt={title ?? name}
+          />
+          <MovieItemTitle>{title ?? name}</MovieItemTitle>
+        </Link>
       </MovieItemWrapper>
     </>
   );
