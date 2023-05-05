@@ -1,15 +1,7 @@
-import { NavLink, Route, Routes } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import Home from '../pages/Home/Home';
 import Movies from 'pages/Movies/Movies';
-import styled from 'styled-components';
-
-const StyledLink = styled(NavLink)`
-  color: black;
-
-  &.active {
-    color: orange;
-  }
-`;
+import { StyledLink } from './App.styled';
 
 export const App = () => {
   return (
