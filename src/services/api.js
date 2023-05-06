@@ -9,8 +9,8 @@ export const getMovieTrendings = async () => {
     .then(response => response.data);
 };
 
-export const getMovieDetails = async ({ movieId }) => {
+export const getMovieDetails = async movieId => {
   return await axios
-    .get(`/3/movie/{movieId}?api_key=${API_KEY}&language=en-US`)
-    .then(response => response);
+    .get(`/3/movie/${movieId}?api_key=${API_KEY}&language=en-US`)
+    .then(response => response.data);
 };
