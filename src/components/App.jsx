@@ -3,6 +3,7 @@ import Home from '../pages/Home';
 import Movies from 'pages/Movies';
 import { HeaderStyled, StyledLink } from './App.styled';
 import Movie from 'pages/Movie';
+import MovieCast from './MovieCast/MovieCast';
 
 export const App = () => {
   return (
@@ -17,7 +18,7 @@ export const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/movies" element={<Movies />} />
         <Route path="/movies/:movieId" element={<Movie />}>
-          <Route path="cast" element={<div>cast</div>} />
+          <Route path="cast" element={<MovieCast />} />
           <Route path="reviews" element={<>reviews</>} />
         </Route>
         <Route path="*" element={<div>Page not found!</div>} />
