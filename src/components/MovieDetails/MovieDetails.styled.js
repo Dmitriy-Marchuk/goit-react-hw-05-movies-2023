@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const MovieInfoWrapper = styled.div`
@@ -32,5 +33,19 @@ export const MoviePoster = styled.img`
   }
   @media screen and (min-width: 1200px) {
     width: 500px;
+  }
+`;
+
+export const GoBackButton = styled(NavLink)`
+  background-color: #fff;
+  color: black;
+  opacity: 30%;
+  font-size: 20px;
+  border: 1px solid #fff;
+  border-radius: 5px;
+  padding: 2px 15px;
+  &:hover {
+    opacity: 90%;
+    transition: ease-in-out 150ms;
   }
 `;

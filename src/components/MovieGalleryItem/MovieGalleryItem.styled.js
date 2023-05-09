@@ -23,4 +23,5 @@ export const MovieItemTitle = styled.h2`
   font-size: 18px;
   padding: 10px;
   text-align: center;
+  color: black;
 `;

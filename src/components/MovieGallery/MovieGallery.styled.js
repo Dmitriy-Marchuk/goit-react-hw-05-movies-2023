@@ -10,6 +10,12 @@ export const MovieGalleryStyled = styled.ul`
   margin-left: auto;
   margin-right: auto;
   list-style: none;
+
+  @media screen and (max-width: 727px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 export const MovieGalleryTitle = styled.h1`

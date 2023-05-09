@@ -1,6 +1,7 @@
 import MovieAdditional from 'components/MovieAdditional/MovieAdditional';
-import { NavLink, Outlet, useLocation } from 'react-router-dom';
+import { Outlet, useLocation } from 'react-router-dom';
 import {
+  GoBackButton,
   MovieInfoOpionsWrapper,
   MovieInfoWrapper,
   MoviePoster,
@@ -37,7 +38,7 @@ const MovieDetails = ({ movie }) => {
           alt={tagline}
         />
         <MovieInfoOpionsWrapper>
-          <NavLink to={goBackHref}>Go back</NavLink>
+          <GoBackButton to={goBackHref}>Go back</GoBackButton>
           <h2>{title}</h2>
           <p>User Score: {vote}%</p>
           <h3>Overview</h3>
