@@ -1,18 +1,19 @@
 import { NavLink } from 'react-router-dom';
+import { AdditionalLink, AdditionalWrapper } from './MovieAdditional.styled';
 
 const MovieAdditional = () => {
   return (
-    <div>
-      <p>Additional information</p>
+    <AdditionalWrapper>
+      <h4>Additional information</h4>
       <ul>
         <li>
-          <NavLink to="cast">Cast</NavLink>
+          <AdditionalLink to="cast">Cast</AdditionalLink>
         </li>
         <li>
-          <NavLink to="reviews">Reviews</NavLink>
+          <AdditionalLink to="reviews">Reviews</AdditionalLink>
         </li>
       </ul>
-    </div>
+    </AdditionalWrapper>
   );
 };
 

@@ -4,6 +4,7 @@ import Movies from 'pages/Movies';
 import { HeaderStyled, StyledLink } from './App.styled';
 import Movie from 'pages/Movie';
 import MovieCast from './MovieCast/MovieCast';
+import MovieReviews from './MovieReviews/MovieReviews';
 
 export const App = () => {
   return (
@@ -19,7 +20,7 @@ export const App = () => {
         <Route path="/movies" element={<Movies />} />
         <Route path="/movies/:movieId" element={<Movie />}>
           <Route path="cast" element={<MovieCast />} />
-          <Route path="reviews" element={<>reviews</>} />
+          <Route path="reviews" element={<MovieReviews />} />
         </Route>
         <Route path="*" element={<div>Page not found!</div>} />
       </Routes>
