@@ -15,7 +15,7 @@ const MovieReviews = () => {
         setReviews(review);
       })
       .catch(error => console.log(error.message));
-  }, []);
+  }, [movieId]);
 
   if (reviews.length === 0) {
     return (

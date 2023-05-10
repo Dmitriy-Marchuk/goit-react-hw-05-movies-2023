@@ -1,4 +1,3 @@
-import { NavLink } from 'react-router-dom';
 import { AdditionalLink, AdditionalWrapper } from './MovieAdditional.styled';
 
 const MovieAdditional = () => {
