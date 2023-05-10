@@ -1,5 +1,12 @@
 const Movies = () => {
-  return <>Movies</>;
+  return (
+    <>
+      <form>
+        <input />
+        <button>Search</button>
+      </form>
+    </>
+  );
 };
 
 export default Movies;
