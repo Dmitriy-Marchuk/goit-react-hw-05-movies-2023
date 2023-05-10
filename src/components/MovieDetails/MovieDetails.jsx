@@ -6,6 +6,8 @@ import {
   MovieInfoWrapper,
   MoviePoster,
 } from './MovieDetails.styled';
+import { Suspense } from 'react';
+import Loader from 'components/Loader/Loader';
 
 const MovieDetails = ({ movie }) => {
   const {
@@ -27,12 +29,17 @@ const MovieDetails = ({ movie }) => {
   const backdropStyle = {
     backgroundImage: `linear-gradient(to right, rgb(18, 18, 23) 150px, rgba(32, 32, 32, 0.84) 55%), url("https://image.tmdb.org/t/p/w500/${backdrop_path}")`,
   };
+  const backdropStyleSecond = {
+    backgroundColor: ' rgba(32, 32, 32, 0.84)',
+  };
 
   const vote = (vote_average * 10).toFixed(0);
 
   return (
     <>
-      <MovieInfoWrapper style={backdrop_path && backdropStyle}>
+      <MovieInfoWrapper
+        style={backdrop_path ? backdropStyle : backdropStyleSecond}
+      >
         <MoviePoster
           src={poster_path ? posterPath : PosterNotAvailable}
           alt={tagline}
@@ -50,7 +57,9 @@ const MovieDetails = ({ movie }) => {
         </MovieInfoOpionsWrapper>
       </MovieInfoWrapper>
       <MovieAdditional />
-      <Outlet />
+      <Suspense fallback={<Loader />}>
+        <Outlet />
+      </Suspense>
     </>
   );
 };

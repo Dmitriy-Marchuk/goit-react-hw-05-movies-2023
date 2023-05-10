@@ -1,11 +1,9 @@
 import MovieGalleryItem from 'components/MovieGalleryItem/MovieGalleryItem';
-import { MovieGalleryStyled, MovieGalleryTitle } from './MovieGallery.styled';
-import { Link } from 'react-router-dom';
+import { MovieGalleryStyled } from './MovieGallery.styled';
 
 const MovieGallery = ({ moviesCollection }) => {
   return (
     <>
-      <MovieGalleryTitle>Trending today</MovieGalleryTitle>
       <MovieGalleryStyled>
         {moviesCollection &&
           moviesCollection.map(movie => (
