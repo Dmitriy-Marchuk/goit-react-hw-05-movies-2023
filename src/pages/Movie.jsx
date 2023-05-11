@@ -1,9 +1,8 @@
-import Error from 'components/Error/Error';
-import Loader from 'components/Loader/Loader';
-import MovieDetails from 'components/MovieDetails/MovieDetails';
-import { Suspense, useEffect, useState } from 'react';
-import { Outlet, useParams } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import { getMovieDetails } from 'services/api';
+import MovieDetails from 'components/MovieDetails/MovieDetails';
+import ErrorPage from 'components/ErrorPage/ErrorPage';
 
 const Movie = () => {
   const [movie, setMovie] = useState('');
@@ -13,9 +12,7 @@ const Movie = () => {
 
   useEffect(() => {
     getMovieDetails(movieId)
-      .then(data => {
-        setMovie(data);
-      })
+      .then(setMovie)
       .catch(error => {
         setErrorMessage(error.message);
       });
@@ -26,11 +23,8 @@ const Movie = () => {
       {movie ? (
         <MovieDetails movie={movie} />
       ) : (
-        <Error errorMessage={errorMessage} />
+        <ErrorPage errorMessage={errorMessage} />
       )}
-      <Suspense fallback={<Loader />}>
-        <Outlet />
-      </Suspense>
     </>
   );
 };

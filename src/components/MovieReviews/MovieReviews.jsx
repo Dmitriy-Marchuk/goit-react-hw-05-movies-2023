@@ -1,20 +1,15 @@
 import { Suspense, useEffect, useState } from 'react';
 import { Outlet, useParams } from 'react-router-dom';
 import { getMovieReviews } from 'services/api';
-import { Author, ReviewElement } from './MovieReviews.styled';
 import Loader from 'components/Loader/Loader';
+import { Author, ReviewElement } from './MovieReviews.styled';
 
 const MovieReviews = () => {
   const { movieId } = useParams();
   const [reviews, setReviews] = useState('');
-  console.log(reviews, 'r');
 
   useEffect(() => {
-    getMovieReviews(movieId)
-      .then(review => {
-        setReviews(review);
-      })
-      .catch(error => console.log(error.message));
+    getMovieReviews(movieId).then(setReviews);
   }, [movieId]);
 
   if (reviews.length === 0) {

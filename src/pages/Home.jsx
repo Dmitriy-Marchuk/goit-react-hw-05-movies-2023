@@ -1,35 +1,21 @@
-import Error from 'components/Error/Error';
-import Loader from 'components/Loader/Loader';
-import MovieGallery from 'components/MovieGallery/MovieGallery';
-import { MovieGalleryTitle } from 'components/MovieGallery/MovieGallery.styled';
 import { Suspense, useEffect, useState } from 'react';
 import { Outlet } from 'react-router-dom';
 import { getMovieTrendings } from 'services/api';
+import Loader from 'components/Loader/Loader';
+import MovieGallery from 'components/MovieGallery/MovieGallery';
+import { MovieGalleryTitle } from 'components/MovieGallery/MovieGallery.styled';
 
 const Home = () => {
   const [trendingCollection, setTrendingCollection] = useState('');
-  const [errorMessage, setErrorMessage] = useState('');
 
   useEffect(() => {
-    getMovieTrendings()
-      .then(data => {
-        setTrendingCollection(data.results);
-      })
-      .catch(error => {
-        setErrorMessage(error.message);
-      });
+    getMovieTrendings().then(setTrendingCollection);
   }, []);
 
   return (
     <>
-      {trendingCollection ? (
-        <>
-          <MovieGalleryTitle>Trending today</MovieGalleryTitle>
-          <MovieGallery moviesCollection={trendingCollection} />
-        </>
-      ) : (
-        <Error errorMessage={errorMessage} />
-      )}
+      <MovieGalleryTitle>Trending today</MovieGalleryTitle>
+      <MovieGallery moviesCollection={trendingCollection} />
       <Suspense fallback={<Loader />}>
         <Outlet />
       </Suspense>

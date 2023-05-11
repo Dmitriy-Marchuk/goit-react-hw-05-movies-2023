@@ -6,27 +6,18 @@ import { getMovieCast } from 'services/api';
 
 const MovieCast = () => {
   const { movieId } = useParams();
-  const [cast, setCast] = useState([]);
+  const [casts, setCasts] = useState('');
   const profileImageUrl = 'https://image.tmdb.org/t/p/w500';
   const PosterNotAvailable =
     'https://www.csaff.org/wp-content/uploads/csaff-no-poster.jpg';
 
-  // useEffect(() => {
-  //   getMovieCast(movieId)
-  //     .then(cast => {
-  //       setCast(cast);
-  //     })
-  //     .catch(error => console.log(error.message));
-  // }, [movieId]);
-
   useEffect(() => {
     getMovieCast(movieId)
-      .then(setCast)
+      .then(setCasts)
       .catch(error => console.log(error.message));
-    console.log('render');
   }, [movieId]);
 
-  if (cast.length === 0) {
+  if (casts.length === 0) {
     return (
       <>
         <h1>No info!</h1>
@@ -36,8 +27,8 @@ const MovieCast = () => {
 
   return (
     <ProfileList>
-      {cast &&
-        cast.map(({ id, character, name, profile_path }) => (
+      {casts &&
+        casts.map(({ id, character, name, profile_path }) => (
           <li key={id}>
             <ProfileImage
               src={

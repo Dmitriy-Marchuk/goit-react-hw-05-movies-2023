@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { SearchButton, SearchForm, SearchInput } from './SearchBar.styled';
 
-const SearchBar = ({ onSubmit, movieQuery }) => {
+const SearchBar = ({ onSubmit }) => {
   const [query, setQuery] = useState('');
 
   const handleInput = e => {

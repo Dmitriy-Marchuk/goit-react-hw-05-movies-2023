@@ -1,15 +1,13 @@
 import { Route, Routes } from 'react-router-dom';
-import SharedLayout from './SharedLayout/SharedLayout';
-import Error from './Error/Error';
 import { lazy } from 'react';
+import SharedLayout from './SharedLayout/SharedLayout';
 
 const Home = lazy(() => import('../pages/Home'));
 const Movies = lazy(() => import('../pages/Movies'));
 const Movie = lazy(() => import('../pages/Movie'));
-const MovieCast = lazy(() => import('../components/MovieCast/MovieCast'));
-const MovieReviews = lazy(() =>
-  import('../components/MovieReviews/MovieReviews')
-);
+const MovieCast = lazy(() => import('./MovieCast/MovieCast'));
+const MovieReviews = lazy(() => import('.//MovieReviews/MovieReviews'));
+const ErrorPage = lazy(() => import('./ErrorPage/ErrorPage'));
 
 export const App = () => {
   return (
@@ -22,7 +20,10 @@ export const App = () => {
             <Route path="cast" element={<MovieCast />} />
             <Route path="reviews" element={<MovieReviews />} />
           </Route>
-          <Route path="*" element={<Error errorMessage="Page not found" />} />
+          <Route
+            path="*"
+            element={<ErrorPage errorMessage="Page not found" />}
+          />
         </Route>
       </Routes>
     </>

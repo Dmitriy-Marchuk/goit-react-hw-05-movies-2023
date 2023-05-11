@@ -4,6 +4,7 @@ import styled from 'styled-components';
 export const MovieInfoWrapper = styled.div`
   display: flex;
   padding: 20px;
+
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -22,8 +23,8 @@ export const MovieInfoOpionsWrapper = styled.div`
 `;
 
 export const MoviePoster = styled.img`
-  border-radius: 5px;
   object-fit: contain;
+  border-radius: 5px;
 
   @media screen and (max-width: 767px) {
     max-width: 250px;
@@ -37,13 +38,14 @@ export const MoviePoster = styled.img`
 `;
 
 export const GoBackButton = styled(NavLink)`
-  background-color: #fff;
-  color: black;
-  opacity: 30%;
-  font-size: 20px;
+  padding: 2px 15px;
   border: 1px solid #fff;
   border-radius: 5px;
-  padding: 2px 15px;
+
+  background-color: #fff;
+  opacity: 30%;
+  color: black;
+  font-size: 20px;
   &:hover {
     opacity: 90%;
     transition: ease-in-out 150ms;

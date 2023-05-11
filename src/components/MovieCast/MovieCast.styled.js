@@ -1,10 +1,10 @@
-const { default: styled } = require('styled-components');
+import styled from 'styled-components';
 
 export const ProfileList = styled.ul`
   display: grid;
-  max-width: calc(100vw - 48px);
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   grid-gap: 30px;
+  max-width: calc(100vw - 48px);
   padding: 0 0 30px 0;
   margin-top: 20px;
   margin-left: auto;

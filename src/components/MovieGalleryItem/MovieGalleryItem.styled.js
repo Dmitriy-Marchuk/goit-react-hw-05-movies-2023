@@ -14,14 +14,14 @@ export const MovieItemWrapper = styled.li`
 
 export const MovieImagePoster = styled.img`
   width: 100%;
-  object-fit: cover;
   border-radius: 10px 10px 0 0;
+  object-fit: cover;
 `;
 
 export const MovieItemTitle = styled.h2`
-  font-weight: 500;
-  font-size: 18px;
   padding: 10px;
   text-align: center;
   color: black;
+  font-size: 18px;
+  font-weight: 500;
 `;
